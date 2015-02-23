@@ -1,0 +1,12 @@
+<table class="table table-striped"> 
+	<tr>
+		<th></th><th>Played</th><th>Wins</th><th>Draws</th><th>Losses</th>
+	</tr>
+	<tr ng-repeat="usr in users">
+		<td>{{usr.getName()}}</td>
+		<td><b>{{usr.matches}}<b></td>
+		<td>{{usr.wins}} <span class="percentage small">({{(usr.wins / usr.matches) * 100 | number:0}}%)</span></td>
+		<td>{{usr.draws}}</td>
+		<td>{{usr.losses}}</td>
+	</tr>
+</table>
