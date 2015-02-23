@@ -12,5 +12,5 @@
 
  	$scope.validateLogin = function(user){
  		UserService.login(user.login,user.password);
- 	}
+ 	};
  }]);

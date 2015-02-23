@@ -35,6 +35,10 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/teams', {
+        templateUrl: 'views/teams.html',
+        controller: 'TeamsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -24,7 +24,7 @@ function Player(firstName,lastName,wins,draws,losses){
 
 Player.prototype.getName = function(){
 	return this.firstName + ' ' + this.lastName;
-}
+};
 
 
 svc.getUsers = function() {
@@ -36,7 +36,7 @@ svc.getUsers = function() {
 
 	_.forEach(users,function(usr){
 		resp.push(new Player(usr.firstName,usr.lastName,usr.Wins,usr.Draws,usr.Losses));
-	})
+	});
 
 	return resp;
 },
@@ -46,6 +46,6 @@ svc.getUsers = function() {
 svc.login = function(usr,pass){
 	console.log('received user ' + usr + ' and pass ' + pass);
 	return true;
-}
+};
 
 });

@@ -1,0 +1,19 @@
+<input type="text" ng-model="search.name">
+<select ng-model="quality">
+	<option value="5">5</option>
+	<option value="4.5">4.5</option>
+	<option value="4">4</option>
+</select>
+<table class="table table-striped"> 
+	<tr>
+		<th></th><th>Name</th><th>Quality</th><th>ATT</th><th>MID</th><th>DEF</th>
+	</tr>
+	<tr ng-repeat="team in teams | filter:search">
+		<td>{{team.country}}</td>
+		<td>{{team.name}}</td>
+		<td>{{team.quality}}</td>
+		<td>{{team.att}}</td>
+		<td>{{team.mid}}</td>
+		<td>{{team.def}}</td>
+	</tr>
+</table>

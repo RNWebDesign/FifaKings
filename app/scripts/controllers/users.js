@@ -9,11 +9,6 @@
  */
 angular.module('fifaKingsV2App')
   .controller('UsersCtrl', ['$scope','UserService',function ($scope,UserService) {
-  	var vm = this;
-
     $scope.users = UserService.getUsers();
-
-    
-
 
   }]);
