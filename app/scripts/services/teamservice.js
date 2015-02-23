@@ -27,7 +27,7 @@ function Team(name,country,quality,att,mid,def){
 svc.getTeams = function() {
 	var teams = [
 	{name:'Arsenal',country:'ENG',quality:'4.5',att:78,mid:80,def:79},
-	{name:'Barcelona',country:'SPA',quality:'5',att:88,mid:86,def:79},
+	{name:'Barcelona',country:'ES',quality:'5',att:88,mid:86,def:79},
 	{name:'Manchester City',country:'ENG',quality:'5',att:83,mid:84,def:82}
 	],resp = [];
 

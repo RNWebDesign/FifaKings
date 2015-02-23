@@ -1,4 +1,4 @@
-<input type="text" ng-model="search.name">
+<input type="text" ng-model="search.name" placeholder="Search...">
 <select ng-model="quality">
 	<option value="5">5</option>
 	<option value="4.5">4.5</option>
@@ -9,11 +9,14 @@
 		<th></th><th>Name</th><th>Quality</th><th>ATT</th><th>MID</th><th>DEF</th>
 	</tr>
 	<tr ng-repeat="team in teams | filter:search">
-		<td>{{team.country}}</td>
+		<td><img src="" class="flag flag-{{team.country|lowercase}}" /></td>
 		<td>{{team.name}}</td>
 		<td>{{team.quality}}</td>
 		<td>{{team.att}}</td>
 		<td>{{team.mid}}</td>
 		<td>{{team.def}}</td>
+		<td><a ng-click="editTeam(team)"><span class="glyphicon glyphicon-pencil"/></a></td>
 	</tr>
 </table>
+
+<button class="btn btn-success"><span class="gglyphicon glyphicon-plus"/> Add Team</button>
