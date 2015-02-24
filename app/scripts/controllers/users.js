@@ -8,7 +8,7 @@
  * Controller of the fifaKingsV2App
  */
 angular.module('fifaKingsV2App')
-  .controller('UsersCtrl', ['$scope','UserService',function ($scope,UserService) {
-    $scope.users = UserService.getUsers();
+  .controller('UsersCtrl', ['$scope','PlayerService',function ($scope,PlayerService) {
+    $scope.users = PlayerService.getPlayers();
 
   }]);

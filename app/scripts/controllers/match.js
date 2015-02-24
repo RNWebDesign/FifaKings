@@ -8,6 +8,6 @@
  * Controller of the fifaKingsV2App
  */
 angular.module('fifaKingsV2App')
-  .controller('MatchCtrl', function ($scope) {
+  .controller('MatchCtrl', ['$scope','PlayerService','TeamService',function ($scope,PlayerService,TeamService) {
 
-  });
+  }]);

@@ -2,6 +2,8 @@
 <div ng-show="alert.message" class="alert alert-{{alert.style}} animate-show" role="alert">{{alert.message}}</div>
 <form class="form-inline"><input type="text" ng-model="search.name" placeholder="Search..." class="form-control">
 	<select ng-model="search.quality" class="form-control">
+		
+		<option value="">All</option>
 		<option value="5">5</option>
 		<option value="4.5">4.5</option>
 		<option value="4">4</option>
@@ -13,8 +15,11 @@
 		<option value="1">1</option>
 	</select>
 		<select ng-model="search.country" class="form-control">
+		<option value="">All</option>
 		<option value="ENG">England</option>
-		<option value="ES">Spain</option>>
+		<option value="ES">Spain</option>
+		<option value="DE">Germany</option>
+		<option value="IT">Italy</option>
 	</select>
 </form>
 
