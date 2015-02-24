@@ -39,6 +39,14 @@
     templateUrl: 'views/teams.html',
     controller: 'TeamsCtrl'
   })
+  .when('/Match', {
+    templateUrl: 'views/match.html',
+    controller: 'MatchCtrl'
+  })
+  .when('/Register', {
+    templateUrl: 'views/register.html',
+    controller: 'RegisterCtrl'
+  })
   .otherwise({
     redirectTo: '/'
   });
