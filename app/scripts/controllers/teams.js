@@ -8,20 +8,20 @@
  * Controller of the fifaKingsV2App
  */
  angular.module('fifaKingsV2App')
- .controller('TeamsCtrl', ['$scope','TeamService',function ($scope,TeamService) {
+ .controller('TeamsCtrl', ['$scope','$timeout','TeamService',function ($scope,$timeout,TeamService) {
 
  	$scope.teams = TeamService.getTeams();
 
- 	$scope.alert = null;
+ 	$scope.alert = {};
 
  	function showAlert(style,message){
  		$scope.alert = {
  			style:style,
  			message:message
  		};
- 		setTimeout(function(){
+ 		$timeout(function(){
  			$scope.alert = {};
- 		},2000);
+ 		},3000);
  	}
 
  	$scope.editTeam = function(team){
