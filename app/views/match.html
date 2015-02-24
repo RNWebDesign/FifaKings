@@ -6,7 +6,7 @@
 		</div>
 		<div class="form-group">
 			<label for="playerHome">Player</label>
-			<input type="text" ng-model="home.player" typeahead="player as player.name for player in players | filter:$viewValue | limitTo:8" class="form-control" placeholder="Search..." id="playerHome">
+			<input type="text" ng-model="home.player" typeahead="player as player.getName() for player in players | filter:$viewValue | limitTo:8" class="form-control" placeholder="Search..." id="playerHome">
 		</div>
 		<div class="form-group">
 			<label for="scoreHome">Score</label>
@@ -25,7 +25,7 @@
 		</div>
 		<div class="form-group">
 			<label for="playerAway">Player</label>
-			<input type="text" ng-model="away.player" typeahead="player as player.name for player in players | filter:$viewValue | limitTo:8" class="form-control" placeholder="Search..." id="playerAway">
+			<input type="text" ng-model="away.player" typeahead="player as player.getName() for player in players | filter:$viewValue | limitTo:8" class="form-control" placeholder="Search..." id="playerAway">
 		</div>
 		<div class="form-group">
 			<label for="teamAway">Team</label>
@@ -33,3 +33,11 @@
 		</div>
 	</div>
 </form>
+<div>
+Results:<br>
+{{home}}<br>
+<br>
+vs <br>
+<br>
+{{away}}<br>
+</div>
