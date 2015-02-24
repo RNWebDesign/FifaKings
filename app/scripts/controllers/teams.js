@@ -12,7 +12,20 @@
 
  	$scope.teams = TeamService.getTeams();
 
- 	$scope.editTeam = function(team){
- 		console.log(team);
+ 	$scope.alert = null;
+
+ 	function showAlert(style,message){
+ 		$scope.alert = {
+ 			style:style,
+ 			message:message
+ 		};
+ 		setTimeout(function(){
+ 			$scope.alert = {};
+ 		},2000);
  	}
+
+ 	$scope.editTeam = function(team){
+ 		showAlert('success','Team Edited Succesfully!');
+ 		console.log(team);
+ 	};
  }]);

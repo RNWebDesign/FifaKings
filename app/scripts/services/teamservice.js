@@ -36,7 +36,7 @@ svc.getTeams = function() {
 	});
 
 	return resp;
-}
+};
 
 
 });
