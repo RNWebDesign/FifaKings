@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: AboutCtrl', function () {
+describe('Controller: NavbarCtrl', function () {
 
   // load the controller's module
   beforeEach(module('fifaKingsV2App'));
 
-  var AboutCtrl,
+  var NavbarCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    AboutCtrl = $controller('AboutCtrl', {
+    NavbarCtrl = $controller('NavbarCtrl', {
       $scope: scope
     });
   }));

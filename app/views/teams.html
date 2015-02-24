@@ -5,10 +5,16 @@
 	<option value="5">5</option>
 	<option value="4.5">4.5</option>
 	<option value="4">4</option>
+	<option value="3.5">3.5</option>
+	<option value="3">3</option>
+	<option value="2.5">2.5</option>
+	<option value="2">2</option>
+	<option value="1.5">1.5</option>
+	<option value="1">1</option>
 </select>
 <table class="table table-striped"> 
 	<tr>
-		<th></th><th>Name</th><th>Quality</th><th>ATT</th><th>MID</th><th>DEF</th>
+		<th></th><th>Name</th><th>Quality</th><th>ATT</th><th>MID</th><th>DEF</th><th>&nbsp;</th>
 	</tr>
 	<tr ng-repeat="team in teams | filter:search">
 		<td><img src="" class="flag flag-{{team.country|lowercase}}" /></td>
