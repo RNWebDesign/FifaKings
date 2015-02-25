@@ -124,7 +124,7 @@ function getTournaments()
 
     $jsonData = array();
     while ($array = $result->fetch_row()) {
-        $obj = new Player($array[0], $array[1], $array[2], $array[3], $array[4], $array[5], $array[6], $array[7]);
+        $obj = new Tournament($array[0], $array[1], $array[2], $array[3], $array[4], $array[5], $array[6], $array[7]);
         $jsonData[] = $obj;
     }
     return json_encode($jsonData);
@@ -144,7 +144,7 @@ function getTeams()
 
     $jsonData = array();
     while ($array = $result->fetch_row()) {
-        $obj = new Player($array[0], $array[1], $array[2], $array[3], $array[4], $array[5], $array[6], $array[7], $array[8]);
+        $obj = new Team($array[0], $array[1], $array[2], $array[3], $array[4], $array[5], $array[6], $array[7], $array[8]);
         $jsonData[] = $obj;
     }
     return json_encode($jsonData);
@@ -158,23 +158,20 @@ $objData = json_decode($data);
 
 switch ($_GET['method']) {
     case "getTeams":
-        echo getTeams();
-        break;
-    case "shops":
-        echo getShops();
-        break;
-            case "filters":
-        echo getFilters();
-        break;
-    case "done":
-        echo done();
-        break;
+    echo getTeams();
+    break;
+    case "getPlayers":
+    echo getPlayers();
+    break;
+        case "getTournaments":
+    echo getTournaments();
+    break;
     case "add":
         //echo 'test';
         //echo $data;
         //print_r($objData->item);
-        echo add($objData->item);
-        break;
+    echo add($objData->item);
+    break;
 }
 
 
