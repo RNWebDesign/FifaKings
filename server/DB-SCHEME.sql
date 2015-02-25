@@ -136,7 +136,7 @@ INSERT INTO `role` (`id`, `name`) VALUES
 CREATE TABLE IF NOT EXISTS `team` (
   `id` int(50) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `type` varchar(100) NOT NULL,
+  `locale` varchar(100) NOT NULL,
   `att` int(3) NOT NULL,
   `mid` int(3) NOT NULL,
   `def` int(3) NOT NULL,
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `team` (
 -- Gegevens worden geëxporteerd voor tabel `team`
 --
 
-INSERT INTO `team` (`id`, `name`, `type`, `att`, `mid`, `def`, `quality`, `version`, `abbreviation`) VALUES
+INSERT INTO `team` (`id`, `name`, `locale`, `att`, `mid`, `def`, `quality`, `version`, `abbreviation`) VALUES
 (1, 'FC Zegbroek', 'Belgium', 100, 100, 100, 4.5, 15, 'ZEG');
 
 -- --------------------------------------------------------
