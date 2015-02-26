@@ -8,7 +8,7 @@
  * Service in the fifaKingsV2App.
  */
  angular.module('fifaKingsV2App')
- .service('PlayerService',['Player',function (Player) {
+ .service('PlayerService',['Player','$http','$q',function (Player,$http,$q) {
     // AngularJS will instantiate a singleton by calling "new" on this function
     var svc = this;
 
@@ -24,7 +24,25 @@
     	});
 
     	return resp;
-    },
+    };
+
+    svc.getPlayer = function(id){
+        var def = $q.defer();
+
+        if(id){
+            $http.post('../server/server.php?method=getPlayer', { "id": id}).
+            success(function(usr, status) {
+                def.resolve(new Player(usr.firstName,usr.lastName,usr.Wins,usr.Draws,usr.Losses));
+            })
+            .error(function() {
+                def.reject("Failed to add team");
+            });
+
+            return def.promise;
+        }
+    };
+
+    
 
 
 

@@ -2,6 +2,8 @@
 header('Access-Control-Allow-Origin: *');  
 
 include 'models.php';
+include 'team.php';
+include 'player.php';
 
 $data = file_get_contents("php://input");
 
@@ -87,30 +89,6 @@ function add($item)
     }
 }
 
-
-
-
-
-function getPlayers()
-{
-    // Create connection
-    $conn = connect();
-// Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    $sql = "SELECT * FROM `user`";
-    $result = $conn->query($sql);
-
-    $jsonData = array();
-    while ($array = $result->fetch_row()) {
-        $obj = new Player($array[0], $array[1], $array[2], $array[3], $array[4], $array[5]);
-        $jsonData[] = $obj;
-    }
-    return json_encode($jsonData);
-
-}
-
 function getTournaments()
 {
     // Create connection
@@ -131,26 +109,6 @@ function getTournaments()
 
 }
 
-function getTeams()
-{
-    // Create connection
-    $conn = connect();
-// Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    $sql = "SELECT * FROM `team`";
-    $result = $conn->query($sql);
-
-    $jsonData = array();
-    while ($array = $result->fetch_row()) {
-        $obj = new Team($array[0], $array[1], $array[2], $array[3], $array[4], $array[5], $array[6], $array[7], $array[8]);
-        $jsonData[] = $obj;
-    }
-    return json_encode($jsonData);
-
-}
-
 //Routing
 
 
@@ -163,14 +121,17 @@ switch ($_GET['method']) {
     case "getPlayers":
     echo getPlayers();
     break;
-        case "getTournaments":
+    case "getPlayer":
+    echo getPlayer($objData->id);
+    break;
+    case "getTournaments":
     echo getTournaments();
     break;
-    case "add":
+    case "addTeam":
         //echo 'test';
         //echo $data;
         //print_r($objData->item);
-    echo add($objData->item);
+    echo add($objData->team);
     break;
 }
 

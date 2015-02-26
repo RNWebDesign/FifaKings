@@ -65,6 +65,34 @@ class Match
 
 }
 
+class ListMatch
+{
+    public $id;
+    public $homePlayer;
+    public $homeTeam;
+    public $homeScore;
+    public $awayPlayer;
+    public $awayTeam;
+    public $awayScore;
+    public $regDate;
+    public $random;
+
+    // Assigning the values
+    public function __construct($id, $homePlayer,$homeTeam,$homeScore,$awayPlayer,$awayTeam,$awayScore,$adminId,$tournamentId,$regDate,$version,$random)
+    {
+        $this->id = $id;
+        $this->homePlayer = $homePlayer;
+        $this->homeTeam = $homeTeam;
+        $this->homeScore = $homeScore;
+        $this->awayPlayer = $awayPlayer;
+        $this->awayTeam = $awayTeam;
+        $this->awayScore = $awayScore;
+        $this->regDate = $regDate;
+        $this->random = $random;
+    }
+
+}
+
 class MatchElo
 {
     public $matchId;

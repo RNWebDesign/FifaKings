@@ -27,7 +27,7 @@
 	<tr>
 		<th></th><th>Name</th><th>Quality</th><th>ATT</th><th>MID</th><th>DEF</th><th>&nbsp;</th>
 	</tr>
-	<tr ng-repeat="team in teams | filter:search">
+	<tr ng-repeat="team in teams | filter:search | orderBy:'quality':true">
 		<td><img src="" class="flag flag-{{team.country|lowercase}}" /></td>
 		<td>{{team.name}}</td>
 		<td>{{team.quality}}</td>
@@ -38,4 +38,4 @@
 	</tr>
 </table>
 
-<button class="btn btn-success"><span class="gglyphicon glyphicon-plus"/> Add Team</button>
+<button class="btn btn-success"><span class="glyphicon glyphicon-plus"/> Add Team</button>
