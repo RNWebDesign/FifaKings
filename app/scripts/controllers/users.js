@@ -7,20 +7,35 @@
  * # UsersCtrl
  * Controller of the fifaKingsV2App
  */
- angular.module('fifaKingsV2App')
- .controller('UsersCtrl', ['$scope','PlayerService',function ($scope,PlayerService) {
- 	$scope.users = PlayerService.getPlayers();
+angular.module('fifaKingsV2App')
+    .controller('UsersCtrl', ['$scope', 'UserService', function($scope, UserService) {
 
- 	$scope.getPlayer = function(pid){
- 		PlayerService.getPlayer(1).then(
- 		function(records) {
-	 		console.log('arrived');
-	 		console.log(records);
- 		},
-	 	function(data) {
-	 		console.log('teams retrieval failed.')
-	 	});
- }
+        UserService.getUsers().then(
+            function(records) {
+                $scope.users = records;
+            },
+            function(data) {
+                console.log('teams retrieval failed.');
+            }
+        );
+
+        $scope.getUser = function(pid) {
+            UserService.getUser(1).then(
+                function(records) {
+                    console.log('arrived');
+                    console.log(records);
+                },
+                function(data) {
+                    console.log('teams retrieval failed.')
+                });
+        };
+
+        $scope.addPlayer = function() {
+            $scope.$emit('throwAlert', {
+                style: 'success',
+                message: 'User added Succesfully!'
+            });
+        }
 
 
-}]);
+    }]);

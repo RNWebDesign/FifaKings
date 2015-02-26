@@ -64,6 +64,10 @@
     templateUrl: 'views/player.html',
     controller: 'PlayerCtrl'
   })
+  .when('/players', {
+    templateUrl: 'views/players.html',
+    controller: 'PlayersCtrl'
+  })
   .otherwise({
     redirectTo: '/'
   });

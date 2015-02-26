@@ -4,6 +4,7 @@ header('Access-Control-Allow-Origin: *');
 include 'models.php';
 include 'team.php';
 include 'player.php';
+include 'user.php';
 
 $data = file_get_contents("php://input");
 
@@ -44,30 +45,7 @@ function connect(){
     return $conn;
 }
 
-function done()
-{
-    $_GET["id"];
 
-    $servername = "localhost";
-    $username = "deb38057_shop";
-    $password = "rvshop";
-    $dbname = "deb38057_shop";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "UPDATE listitem SET Done=1 WHERE Id=" . $_GET["id"];
-
-    if ($conn->query($sql) === TRUE) {
-        return true;
-    } else {
-        echo "Error updating record: " . $conn->error;
-    }
-}
 
 function add($item)
 {
@@ -115,22 +93,29 @@ function getTournaments()
 $objData = json_decode($data);
 
 switch ($_GET['method']) {
-    case "getTeams":
-    echo getTeams();
-    break;
+    //players
     case "getPlayers":
     echo getPlayers();
     break;
     case "getPlayer":
     echo getPlayer($objData->id);
     break;
+    //users
+    case "getUsers":
+    echo getUsers();
+    break;
+    case "getUser":
+    echo getUser($objData->id);
+    break;
+    //tournaments
     case "getTournaments":
     echo getTournaments();
     break;
+    //teams
+    case "getTeams":
+    echo getTeams();
+    break;
     case "addTeam":
-        //echo 'test';
-        //echo $data;
-        //print_r($objData->item);
     echo add($objData->team);
     break;
 }

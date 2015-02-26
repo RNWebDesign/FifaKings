@@ -41,16 +41,7 @@
             return def.promise;
         }
     };
-
     
-
-
-
-    svc.login = function(usr,pass){
-    	console.log('received user ' + usr + ' and pass ' + pass);
-    	return true;
-    };
-
 }]).factory('Player', function() {
         //Class Define
         function Player(firstName,lastName,wins,draws,losses){

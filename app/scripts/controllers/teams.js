@@ -8,7 +8,7 @@
  * Controller of the fifaKingsV2App
  */
  angular.module('fifaKingsV2App')
- .controller('TeamsCtrl', ['$scope', '$timeout', 'TeamService', function($scope, $timeout, TeamService) {
+ .controller('TeamsCtrl', ['$scope','TeamService', function($scope, TeamService) {
     $scope.alert = {};
 
 
@@ -33,7 +33,10 @@
     }
 
     $scope.editTeam = function(team) {
-        showAlert('success', 'Team Edited Succesfully!');
+        $scope.$emit('throwAlert',{
+            style:'success',
+            message:'Team Edited Succesfully!'}
+            );
         console.log(team);
     };
 }]);

@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="styles/bootstraptheme.css">
   <!-- endbuild -->
 </head>
-<body ng-app="fifaKingsV2App">
+<body ng-app="fifaKingsV2App" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
@@ -43,8 +43,8 @@
               <ul class="nav navbar-nav">
                 <li ng-class="{ active: isActive('/')}"><a href="#/">Home</a></li>
                 <li ng-class="{ active: isActive('/users')}" ><a ng-href="#/users">Users</a></li>
+                <li ng-class="{ active: isActive('/players')}" ><a ng-href="#/players">Players</a></li>
                 <li ng-class="{ active: isActive('/teams')}" ><a ng-href="#/teams">Teams</a></li>
-
                 <li ng-class="{ active: isActive('/match')}"><a ng-href="#/match">Match</a></li>
                 <li ng-class="{ active: isActive('/login')}"><a ng-href="#/login">Login</a></li>
                 <li ng-class="{ active: isActive('/register')}"><a ng-href="#/register">Register</a></li>
@@ -55,25 +55,28 @@
       </div>
 
       <div class="container">
+        
+        <alert-box ></alert-box>
         <div ng-view=""></div>
       </div>
 
       <div class="footer">
         <div class="container">
-          <p><span class="glyphicon glyphicon-heart" style="color:red"></span> angular</p>
+          <p>An angular<span class="glyphicon glyphicon-heart" style="color:red"></span> application using bootstrap, nodejs(grunt,bower,yeoman) and PHP</p><br />
+          Refactoring <a href="http://dev.fifaking.com" target="_blank">dev.fifaking.com</a>
         </div>
       </div>
 
 
       <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
       <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-         (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-         r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+     }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
+     ga('create', 'UA-XXXXX-X');
+     ga('send', 'pageview');
      </script>
 
      <!-- build:js(.) scripts/vendor.js -->
@@ -94,9 +97,13 @@
 
      <!-- build:js({.tmp,app}) scripts/scripts.js -->
      <script src="scripts/app.js"></script>
+<!-- services-->
      <script src="scripts/services/playerservice.js"></script>
      <script src="scripts/services/teamservice.js"></script>
-     
+     <script src="scripts/services/userservice.js"></script>
+
+
+     <!-- controllers-->
      <script src="scripts/controllers/main.js"></script>
      <script src="scripts/controllers/users.js"></script>
      <script src="scripts/controllers/login.js"></script>
@@ -107,6 +114,11 @@
      <script src="scripts/controllers/tournaments.js"></script>
      <script src="scripts/controllers/tournament.js"></script>
      <script src="scripts/controllers/player.js"></script>
+     <script src="scripts/controllers/alert.js"></script>
+     <script src="scripts/controllers/players.js"></script>
+
+      <!-- directives-->
+     <script src="scripts/directives/alert.js"></script>
      <!-- endbuild -->
    </body>
    </html>

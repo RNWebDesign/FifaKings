@@ -190,7 +190,7 @@ class Tournament
     }
 }
 
-class Player
+class User
 {
     public $id;
     public $firstName;
@@ -208,6 +208,27 @@ class Player
         $this->email = $email;
         $this->password = $password;
         $this->lastLogin = $lastLogin;
+    }
+}
+
+class Player
+{
+    public $id;
+    public $firstName;
+    public $lastName;
+    public $wins;
+    public $draws;
+    public $losses;
+
+    // Assigning the values
+    public function __construct($id,$firstName,$lastName,$wins,$draws,$losses)
+    {
+        $this->id = $id;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->wins = $wins;
+        $this->draws = $draws;
+        $this->losses = $losses;
     }
 }
 

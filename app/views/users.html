@@ -1,15 +1,13 @@
 <table class="table table-striped"> 
 	<tr>
-		<th></th><th>Played</th><th>Wins</th><th>Draws</th><th>Losses</th>
+		<th>Name</th><th>Email</th><th>Last Login</th>
 	</tr>
 	<tr ng-repeat="usr in users">
 		<td>{{usr.getName()}}</td>
-		<td><b>{{usr.matches}}<b></td>
-		<td>{{usr.wins}} <span class="percentage small">({{(usr.wins / usr.matches) * 100 | number:0}}%)</span></td>
-		<td>{{usr.draws}}</td>
-		<td>{{usr.losses}}</td>
+		<td><b>{{usr.email}}<b></td>
+		<td>{{usr.lastLogin}}</td>
 	</tr>
 </table>
 
 
-<button class="btn btn-success" ng-click="getPlayer(usr.wins)"><span class="gglyphicon glyphicon-plus"/> Add User</button>
+<button class="btn btn-success" ng-click="addPlayer()"><span class="gglyphicon glyphicon-plus"/> Add User</button>
