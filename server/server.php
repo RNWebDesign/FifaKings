@@ -1,6 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');  
 
+include 'connect.php';
 include 'models.php';
 include 'team.php';
 include 'player.php';
@@ -29,23 +30,6 @@ function toNull($input, $quote)
         }
     }
 }
-function connect(){
-    $servername = "localhost";
-    $username = "deb38057_shop";
-    $password = "rvshop";
-    $dbname = "fifav2";
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    return $conn;
-}
-
-
 
 function add($item)
 {
