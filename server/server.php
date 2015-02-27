@@ -6,6 +6,8 @@ include 'models.php';
 include 'team.php';
 include 'player.php';
 include 'user.php';
+include 'match.php';
+include 'tournament.php';
 
 $data = file_get_contents("php://input");
 
@@ -51,26 +53,6 @@ function add($item)
     }
 }
 
-function getTournaments()
-{
-    // Create connection
-    $conn = connect();
-// Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    $sql = "SELECT * FROM `tournament`";
-    $result = $conn->query($sql);
-
-    $jsonData = array();
-    while ($array = $result->fetch_row()) {
-        $obj = new Tournament($array[0], $array[1], $array[2], $array[3], $array[4], $array[5], $array[6], $array[7]);
-        $jsonData[] = $obj;
-    }
-    return json_encode($jsonData);
-
-}
-
 //Routing
 
 
@@ -101,6 +83,10 @@ switch ($_GET['method']) {
     break;
     case "addTeam":
     echo add($objData->team);
+    //matches
+    case "getListMatches":
+    echo getListMatches();
+    break;
     break;
 }
 

@@ -19,7 +19,7 @@ angular.module('fifaKingsV2App')
                     var resp = [];
 
                     _.forEach(users, function(usr) {
-                        resp.push(new User(usr.firstName, usr.lastName, usr.email, usr.lastLogin));
+                        resp.push(new User(usr.id,usr.firstName, usr.lastName, usr.email, usr.lastLogin));
                     });
                     def.resolve(resp);
                 })
@@ -40,7 +40,7 @@ angular.module('fifaKingsV2App')
                     "id": id
                 }).
                 success(function(usr, status) {
-                        def.resolve(new User(usr.firstName, usr.lastName, usr.email, usr.lastLogin));
+                        def.resolve(new User(usr.id,usr.firstName, usr.lastName, usr.email, usr.lastLogin));
                     })
                     .error(function() {
                         def.reject("Failed to add team");
@@ -61,7 +61,8 @@ angular.module('fifaKingsV2App')
 
     }]).factory('User', function() {
     //Class Define
-    function User(firstName, lastName, email, lastLogin) {
+    function User(id, firstName, lastName, email, lastLogin) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

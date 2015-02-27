@@ -1,1 +1,11 @@
-<p>This is the tournaments view.</p>
+<table class="table table-striped"> 
+
+	<tr ng-repeat="tour in tournaments">
+		<td>{{tour.name}}</td>
+		<td>{{tour.regDate | date:'dd-MM-yyyy'}}</td>
+		<td>{{tour.version}}</td>
+	</tr>
+</table>
+
+
+<button class="btn btn-success" ng-click="addPlayer()"><span class="gglyphicon glyphicon-plus"/> Add Tournament</button>

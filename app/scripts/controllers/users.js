@@ -13,6 +13,7 @@ angular.module('fifaKingsV2App')
         UserService.getUsers().then(
             function(records) {
                 $scope.users = records;
+                console.log(records);
             },
             function(data) {
                 console.log('teams retrieval failed.');

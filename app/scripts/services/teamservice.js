@@ -23,7 +23,7 @@
                 var resp = [];
 
                 _.forEach(teams, function(team) {
-                    resp.push(new Team(team.name, team.country, team.quality, team.att, team.mid, team.def));
+                    resp.push(new Team(team.id,team.name, team.country, team.quality, team.att, team.mid, team.def));
                 });
                 def.resolve(resp);
             })
@@ -55,7 +55,8 @@
     }])
 .factory('Team', function() {
         //Class Define
-        function Team(name, country, quality, att, mid, def) {
+        function Team(id,name, country, quality, att, mid, def) {
+            this.id= id;
             this.name = name;
             this.country = country;
             this.quality = quality;

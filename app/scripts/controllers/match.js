@@ -11,4 +11,5 @@
  .controller('MatchCtrl', ['$scope','PlayerService','TeamService',function ($scope,PlayerService,TeamService) {
  	$scope.teams = TeamService.getTeams();
  	$scope.players = PlayerService.getPlayers();
+
  }]);

@@ -24,10 +24,6 @@
     templateUrl: 'views/main.html',
     controller: 'MainCtrl'
   })
-  .when('/about', {
-    templateUrl: 'views/about.html',
-    controller: 'AboutCtrl'
-  })
   .when('/users', {
     templateUrl: 'views/users.html',
     controller: 'UsersCtrl'
@@ -60,13 +56,13 @@
     templateUrl: 'views/player.html',
     controller: 'PlayerCtrl'
   })
-  .when('/player', {
-    templateUrl: 'views/player.html',
-    controller: 'PlayerCtrl'
-  })
   .when('/players', {
     templateUrl: 'views/players.html',
     controller: 'PlayersCtrl'
+  })
+  .when('/matches', {
+    templateUrl: 'views/matches.html',
+    controller: 'MatchesCtrl'
   })
   .otherwise({
     redirectTo: '/'

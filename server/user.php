@@ -9,7 +9,7 @@ function getUsers()
 
     $jsonData = array();
     while ($array = $result->fetch_row()) {
-        $obj = new Player($array[0], $array[1], $array[2], $array[3], $array[4], $array[5]);
+        $obj = new User($array[0], $array[1], $array[2], $array[3], 'undefined', $array[5]);
         $jsonData[] = $obj;
     }
     return json_encode($jsonData);
@@ -24,7 +24,7 @@ function getUser($pid)
     $result = $conn->query($sql);
 
     $array = $result->fetch_row();
-    $obj = new Player($array[0], $array[1], $array[2], $array[3], $array[4], $array[5]);
+        $obj = new User($array[0], $array[1], $array[2], $array[3], 'undefined', $array[5]);
 
     return json_encode($obj);
 

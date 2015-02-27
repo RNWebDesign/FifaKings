@@ -13,7 +13,6 @@ function getPlayers()
         $jsonData[] = $obj;
     }
     return json_encode($jsonData);
-
 }
 
 function getPlayer($pid)
@@ -27,7 +26,6 @@ function getPlayer($pid)
     $obj = new Player($array[0], $array[1], $array[2], $array[3], $array[4], $array[5]);
 
     return json_encode($obj);
-
 }
 
 ?>
