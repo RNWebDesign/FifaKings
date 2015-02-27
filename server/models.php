@@ -211,24 +211,37 @@ class User
     }
 }
 
+//Player is fictive class representing a row in a tournament table for a player
 class Player
 {
     public $id;
     public $firstName;
     public $lastName;
+    public $team;
+    public $played;
     public $wins;
     public $draws;
     public $losses;
+    public $goalsFor;
+    public $goalsAgainst;
+    public $goalsDiff;
+    public $points;
 
     // Assigning the values
-    public function __construct($id,$firstName,$lastName,$wins,$draws,$losses)
+    public function __construct($id,$firstName,$lastName,$team,$played,$wins,$draws,$losses,$goalsFor,$goalsAgainst,$goalsDiff,$points)
     {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
+        $this->team = $team;
+        $this->played = $played;
         $this->wins = $wins;
         $this->draws = $draws;
         $this->losses = $losses;
+        $this->goalsFor = $goalsFor;
+        $this->goalsAgainst = $goalsAgainst;
+        $this->goalsDiff = $goalsDiff;
+        $this->points = $points;
     }
 }
 

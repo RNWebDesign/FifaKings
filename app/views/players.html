@@ -1,13 +1,16 @@
 <table class="table table-striped"> 
 	<tr>
-		<th></th><th>Played</th><th>Wins</th><th>Draws</th><th>Losses</th>
+		<th></th><th>Played</th><th>Wins</th><th>Draws</th><th>Losses</th><th>Goals For</th><th>Goals Against</th>
 	</tr>
 	<tr ng-repeat="plyr in players">
 		<td>{{plyr.getName()}}</td>
-		<td><b>{{plyr.matches}}<b></td>
-		<td>{{plyr.wins}} <span class="percentage small">({{(plyr.wins / plyr.matches) * 100 | number:0}}%)</span></td>
+		<td><b>{{plyr.played}}<b></td>
+		<td>{{plyr.wins}} <span class="percentage small">({{(plyr.wins / plyr.played) * 100 | number:0}}%)</span></td>
 		<td>{{plyr.draws}}</td>
 		<td>{{plyr.losses}}</td>
+		<td>{{plyr.goalsFor}}</td>
+		<td>{{plyr.goalsAgainst}}</td>
+
 	</tr>
 </table>
 

@@ -12,19 +12,25 @@
     // AngularJS will instantiate a singleton by calling "new" on this function
     var svc = this;
 
-    svc.getPlayers = function() {
-    	var users = [
-    	{firstName:'Robin',lastName:'Verhulst',Wins:27,Draws:3,Losses:4},
-    	{firstName:'Bert',lastName:'Van Genechten',Wins:2,Draws:5,Losses:5},
-    	{firstName:'Ronnie',lastName:'Vandenpoel',Wins:5,Draws:1,Losses:2}
-    	],resp = [];
+        svc.getPlayers = function() {
 
-    	_.forEach(users,function(usr){
-    		resp.push(new Player(usr.firstName,usr.lastName,usr.Wins,usr.Draws,usr.Losses));
-    	});
+            var def = $q.defer();
+            $http.post('../server/server.php?method=getPlayers', {}).
+            success(function(players, status) {
+                var resp = [];
 
-    	return resp;
-    };
+                _.forEach(players, function(plyr) {
+                    resp.push(new Player(plyr.id,plyr.firstName,plyr.lastName,plyr.team,plyr.played,plyr.wins,plyr.draws,plyr.losses,plyr.goalsFor,plyr.goalsAgainst,plyr.points));
+                });
+                def.resolve(resp);
+            })
+            .error(function() {
+                def.reject("Failed to get players");
+            });
+
+            return def.promise;
+        };
+
 
     svc.getPlayer = function(id){
         var def = $q.defer();
@@ -44,13 +50,19 @@
     
 }]).factory('Player', function() {
         //Class Define
-        function Player(firstName,lastName,wins,draws,losses){
-        	this.firstName = firstName;
-        	this.lastName = lastName;
-        	this.wins = wins;
-        	this.draws = draws;
-        	this.losses = losses;
-        	this.matches = wins + draws + losses;
+         function Player(id,firstName,lastName,team,played,wins,draws,losses,goalsFor,goalsAgainst,points)
+        {
+            this.id = id;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.team = team;
+            this.played = played;
+            this.wins = wins;
+            this.draws = draws;
+            this.losses = losses;
+            this.goalsFor = goalsFor;
+            this.goalsAgainst = goalsAgainst;
+            this.points = points;
         }
 
         Player.prototype.getName = function(){

@@ -23,7 +23,7 @@
                 var resp = [];
 
                 _.forEach(teams, function(team) {
-                    resp.push(new Team(team.id,team.name, team.country, team.quality, team.att, team.mid, team.def));
+                    resp.push(new Team(team.id,team.name, team.locale, team.quality, team.att, team.mid, team.def));
                 });
                 def.resolve(resp);
             })
