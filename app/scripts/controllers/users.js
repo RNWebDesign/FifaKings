@@ -16,18 +16,18 @@ angular.module('fifaKingsV2App')
                 console.log(records);
             },
             function(data) {
-                console.log('teams retrieval failed.');
+                console.log('users retrieval failed.');
             }
         );
 
         $scope.getUser = function(pid) {
-            UserService.getUser(1).then(
+            UserService.getUser(pid).then(
                 function(records) {
                     console.log('arrived');
                     console.log(records);
                 },
                 function(data) {
-                    console.log('teams retrieval failed.')
+                    console.log('user retrieval failed.')
                 });
         };
 

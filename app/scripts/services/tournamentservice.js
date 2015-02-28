@@ -30,6 +30,39 @@ angular.module('fifaKingsV2App')
             return def.promise;
         };
 
+           svc.getTournament = function(id) {
+            var def = $q.defer();
+
+            if (id) {
+                $http.post('../server/server.php?method=getTournament', {
+                    "id": id
+                }).
+                success(function(tour, status) {
+                        def.resolve(new Tournament(tour.id,tour.name,tour.hostId,tour.regDate,tour.closed,tour.version,tour.leagueId,tour.elo));
+                    })
+                    .error(function() {
+                        def.reject("Failed to find tournament");
+                    });
+
+                return def.promise;
+            }
+        };
+
+        svc.add = function(tournament) {
+
+            var def = $q.defer();
+            $http.post('../server/server.php?method=addTournament', {"tour":tournament}).
+            success(function(tournamentId, status) {
+                    var resp = [];
+                    def.resolve(tournamentId);
+                })
+                .error(function() {
+                    def.reject("Failed to add tournament");
+                });
+
+            return def.promise;
+        };
+
   }]).factory('Tournament', function() {
         //Class Define
         function Tournament(id,name,hostId,regDate,closed,version,leagueId,elo)

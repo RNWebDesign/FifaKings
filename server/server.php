@@ -1,5 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');  
+$FIFA_VERSION = 15;
 
 include 'connect.php';
 include 'models.php';
@@ -10,6 +11,7 @@ include 'match.php';
 include 'tournament.php';
 
 $data = file_get_contents("php://input");
+
 
 
 function escape($input)
@@ -74,8 +76,14 @@ switch ($_GET['method']) {
     echo getUser($objData->id);
     break;
     //tournaments
+    case "getTournament":
+    echo getTournament($objData->id);
+    break;
     case "getTournaments":
     echo getTournaments();
+    break;
+    case "addTournament":
+    echo addTournament($objData->tour);
     break;
     //teams
     case "getTeams":

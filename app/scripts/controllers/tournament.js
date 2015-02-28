@@ -10,4 +10,14 @@
 angular.module('fifaKingsV2App')
   .controller('TournamentCtrl',['$scope','TournamentService','$routeParams', function ($scope,TournamentService,$routeParams) {
         $scope.tid = $routeParams.tid;
+
+
+        TournamentService.getTournament($scope.tid).then(
+            function(record) {
+                $scope.tournament = record;
+            },
+            function(data) {
+                console.log('tournament retrieval failed.');
+            }
+        );
   }]);

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 26 feb 2015 om 01:02
+-- Gegenereerd op: 28 feb 2015 om 23:53
 -- Serverversie: 5.6.17
 -- PHP-versie: 5.5.12
 
@@ -444,13 +444,13 @@ CREATE TABLE IF NOT EXISTS `tournament` (
   `id` int(50) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `host_id` int(50) NOT NULL,
-  `date` datetime DEFAULT NULL,
+  `date` datetime DEFAULT CURRENT_TIMESTAMP,
   `closed` bit(1) NOT NULL DEFAULT b'0',
   `version` int(11) DEFAULT NULL,
   `league_id` int(50) NOT NULL,
   `elo` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `tournament`
@@ -458,7 +458,9 @@ CREATE TABLE IF NOT EXISTS `tournament` (
 
 INSERT INTO `tournament` (`id`, `name`, `host_id`, `date`, `closed`, `version`, `league_id`, `elo`) VALUES
 (1, 'Test Cup', 1, '2014-10-10 00:00:00', b'0', 15, 1, b'0'),
-(2, 'Second Cup', 1, '2014-10-17 00:00:00', b'0', 15, 1, b'0');
+(2, 'Second Cup', 1, '2014-10-17 00:00:00', b'0', 15, 1, b'0'),
+(3, 'qsd', 0, NULL, b'0', NULL, 0, b'0'),
+(4, '', 1, NULL, b'0', NULL, 1, b'0');
 
 -- --------------------------------------------------------
 
@@ -474,7 +476,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(100) NOT NULL,
   `last_login` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `user`
@@ -484,7 +486,9 @@ INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `last_
 (1, 'Robin', 'Verhulst', 'test@verhulst.be', 'test', '2014-10-20 17:00:00'),
 (2, 'Frederik', 'Bouillon', 'test@verhulst.be', 'test', '2014-10-20 17:00:00'),
 (3, 'Nielsen', 'Stassyns', 'test@verhulst.be', 'test', '2014-10-20 17:00:00'),
-(4, 'Yinan', 'Ma', 'test@verhulst.be', 'test', '2014-10-20 17:00:00');
+(4, 'Yinan', 'Ma', 'test@verhulst.be', 'test', '2014-10-20 17:00:00'),
+(5, 'Sven', 'Stassyns', 'test@verhulst.be', 'test', '2014-10-20 17:00:00'),
+(6, 'Philip', 'Hermans', 'test@verhulst.be', 'test', '2014-10-20 17:00:00');
 
 -- --------------------------------------------------------
 
