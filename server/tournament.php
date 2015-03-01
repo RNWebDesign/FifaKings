@@ -68,9 +68,10 @@ function addTournament($tour)
     if ($conn->query($sql) === TRUE) {
         $tourId = $conn->insert_id;
 
-        /*foreach ($player as &$tour->players) {
-            $val
-        }*/
+        foreach ($tour->players as $player) {
+             $sql = "INSERT INTO `user_tournament` (`tournament_id`, `user_id`) VALUES (" . $tourId . "," . $player->id . ")";
+             $conn->query($sql);
+        }
 
         return $tourId;
     } else {
