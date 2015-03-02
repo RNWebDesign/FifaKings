@@ -25,7 +25,7 @@
  		);
 
  	$scope.addPlayerToTournament = function(player){
- 		if(player)
+ 		if(player && player.firstName)
  			$scope.tournament.players.push(player);
  	};
 
@@ -47,6 +47,6 @@
  				});
  			});
  		}
- 	}
+ 	};
 
  }]);
